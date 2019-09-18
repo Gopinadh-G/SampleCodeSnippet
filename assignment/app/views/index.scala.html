@@ -1,0 +1,133 @@
+
+@main("Know your planet"){
+<html lang="en">
+<head>
+
+
+</head>
+<body>
+
+<div class="jumbotron">
+    <h1>Welcome to planet Earth</h1>
+    <p>This application helps you to understand various continents, countries and cities of the planet Earth.
+        Various query interface have been implemented to help you expand your knowledge about the Earth.
+        Happy Learning!!!</p>
+</div>
+<div class="container">
+    <label id="welcomeMessage" class="orange" class="hidden"></label>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand"  href="#" id="knowearthheader">KnowEarth</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li id="findContinentForCountryHeader" data-toggle="tooltip" title="Make a REST API Call to thirdparty!"><a href="#">Find Continent for a country</a></li>
+                <li id="findSiblingCountriesHeader" data-toggle="tooltip" title="Make a REST API Call to thirdparty!"><a href="#">Check sibling countries </a></li>
+                <li id="findAllCitiesOfAContinentHeader" data-toggle="tooltip" title="Database Interaction"><a href="#">Find all cities of a continent</a></li>
+                 <li id="addContinentHeader" data-toggle="tooltip" title="Database Interaction"><a href="#">Add a Continent</a></li>
+                <li id="addCitiesHeader" data-toggle="tooltip" title="Database Interaction"><a href="#">Add Cities</a></li>
+                <li id="groupCitiesHeader" data-toggle="tooltip" title="Database Interaction"><a href="#">Group Cities</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div id="loginform" >
+        <div class="form-group">
+            <label for="loginname"> Name:</label>
+            <input type="text" class="form-control" id="loginname">
+            <label for="loginpwd"> Password:</label>
+            <input type="password" class="form-control" id="loginpwd">
+        </div>
+        <button class="btn btn-primary" id="loginbutton">Log In</button>
+    </div>
+    <div id="homemessage" class="hidden">Please select a tab to continue with your queries.</div>
+    <div id="findContinentForCountry" class="hidden">
+        <div class="form-group">
+            <label for="countryName">Country Name:</label>
+            <input type="text" class="form-control" id="countryName">
+        </div>
+        <button class="btn btn-primary" id="_findContinent">Find Continent</button><br/><hr/>
+        <label id="_findContinentResult" ></label>
+    </div>
+
+    <div id="findAllCitiesOfAContinent" class="hidden">
+        <div class="form-group">
+            <label for="findCityForContinent">Continent Name:</label>
+            <input type="text" class="form-control" id="findCityForContinent">
+        </div>
+        <button class="btn btn-primary" id="_findCity">Find Cities</button>
+        <label id="_findCityResult"></label>
+    </div>
+    <div id="findSiblingCountries" class="hidden">
+        <div class="form-group">
+            <label for="firstCountry">First Country Name:</label>
+            <input type="text" class="form-control" id="firstCountry">
+            <label for="secondCountry">Second Country Name:</label>
+            <input type="text" class="form-control" id="secondCountry">
+        </div>
+        <button class="btn btn-primary" id="_findIfSibling">Are Sibling Countries?</button><br/><hr/>
+        <label id="_findSiblingCountriesResult"></label>
+    </div>
+    <div id="addContinent" class="hidden">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <ul class="nav navbar-nav">
+                        <li id="showContinentsSubHeader"><a href="#">Show All Continent</a></li>
+                        <li id="addContinentSubHeader"><a href="#">Add Continent</a></li>
+                        <li id="deleteContinentSubHeader"><a href="#">Delete Continent</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="continentHomeMessage"> Please select an option to add or delete a continent</div>
+        <div id="addANewContinent" class="hidden">
+             <div class="form-group">
+                  <label for="newContinent">Enter a continent name:</label>
+                  <input type="text" class="form-control" id="newContinent">
+                 <label for="newContinentCountry">Enter the Country's name:</label>
+                 <input type="text" class="form-control" id="newContinentCountry">
+                 <label for="newContinentCity">Enter a city name:</label>
+                 <input type="text" class="form-control" id="newContinentCity">
+             </div><br/>
+             <button class="btn btn-primary" id="_addContinent">Add New Continent</button>
+        </div>
+        <div id="deleteAContinent" class="hidden">
+            <label for="deleteContinentName">Enter the continent name to delete:</label>
+            <input type="text" class="form-control" id="deleteContinentName"><br/>
+            <button class="btn btn-primary" id="_deleteContinent">Delete Continent</button>
+
+        </div>
+            <div id="showAllContinents" class="hidden">
+                <button class="btn btn-primary" id="_showContinents">Show All Continents</button>
+
+            </div>
+        <label id="_addContinentResult"></label>
+            <label id="_deleteContinentResult"></label>
+            <label id="_showAllContinentsResult"></label>
+
+    </div>
+    <div id="addCities" class="hidden">
+        <div class="form-group">
+            <label for="newCity">Enter a city name:</label>
+            <input type="text" class="form-control" id="newCity">
+            <label for="newCityCountry">Enter the Country's name:</label>
+            <input type="text" class="form-control" id="newCityCountry">
+            <label for="newCityRegion">Enter the Continent's name:</label>
+            <input type="text" class="form-control" id="newCityRegion">
+        </div>
+        <button class="btn btn-primary" id="_addCity">Add New City</button>
+        <label id="_addCityResult"></label>
+    </div>
+    <div id="groupCities" class="hidden">
+
+        <button class="btn btn-primary" id="_groupCity">Sort cities</button>
+        <label id="_groupCitiesResult"></label>
+    </div>
+    <div id="groupCitiesDisabled" class="hidden"><label>You don't have sufficient permission to access this feature.</label></div>
+</div>
+<input type="hidden" id="userName"/>
+</body>
+<footer class="navbar-fixed-bottom">
+    <p text-align=center">Created by: Ritu Priya as part of Qvantel onboarding exercise.</p>
+</footer>
+}
